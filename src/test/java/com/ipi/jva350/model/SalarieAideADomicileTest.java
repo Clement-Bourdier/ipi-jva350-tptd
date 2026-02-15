@@ -12,27 +12,27 @@ public class SalarieAideADomicileTest {
 
     @ParameterizedTest
     @CsvSource({
-            "9", "10"
+            "10", "11"
     })
-    public void aLegalementDroitADesCongesPayesFalseOk(double nbrJourstravaille) {
+    public void aLegalementDroitADesCongesPayesTrueOk(double nbrJourstravaille) {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setJoursTravaillesAnneeNMoins1(nbrJourstravaille);
         //When
         boolean droitCongePayes = salarie.aLegalementDroitADesCongesPayes();
         //Then
-        Assertions.assertFalse(droitCongePayes);
+        Assertions.assertTrue(droitCongePayes);
     }
 
     @Test
-    public void aLegalementDroitADesCongesPayesTrueOk() {
+    public void aLegalementDroitADesCongesPayesFalseOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
-        salarie.setJoursTravaillesAnneeNMoins1(11);
+        salarie.setJoursTravaillesAnneeNMoins1(9);
         //When
         boolean droitCongePayes = salarie.aLegalementDroitADesCongesPayes();
         //Then
-        Assertions.assertTrue(droitCongePayes);
+        Assertions.assertFalse(droitCongePayes);
     }
 
     @Test
@@ -45,14 +45,21 @@ public class SalarieAideADomicileTest {
         Assertions.assertEquals(salarie.getCongesPayesPris(), listConges);
     }
 
-    @Test
-    public void calculeJoursDeCongeDecomptesPourPlageDateSemaineNormalOk() {
+    @ParameterizedTest
+    @CsvSource({
+            "'2026-05-04', '2026-05-08', 5", //Periode de congés normale 2026-05-04 (LocalDate.parse)
+            "'2026-04-30', '2026-05-05', 4" //Période de congés avec jour ferié (1 Mai)
+    })
+    public void calculeJoursDeCongeDecomptesPourPlageDateSemaineNormalOk(
+            String dtDebut, String dtFin,
+            int nbrJour) {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
-        LinkedHashSet<LocalDate> listConges = salarie.calculeJoursDeCongeDecomptesPourPlage(LocalDate.of(2026,5,4), LocalDate.of(2026,5,8));
+        LinkedHashSet<LocalDate> listConges = salarie.calculeJoursDeCongeDecomptesPourPlage(
+                LocalDate.parse(dtDebut), LocalDate.parse(dtFin));
         //Then
-        Assertions.assertEquals(salarie.getCongesPayesPris().size()+5, listConges.size());
+        Assertions.assertEquals(salarie.getCongesPayesPris().size()+nbrJour, listConges.size());
     }
 
     @Test
@@ -114,6 +121,5 @@ public class SalarieAideADomicileTest {
         //Then
         Assertions.assertFalse(isTravailler);
     }
-
 
 }
