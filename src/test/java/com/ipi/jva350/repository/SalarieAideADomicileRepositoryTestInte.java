@@ -10,13 +10,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class SalarieAideADomicileRepositoryTestInte {
+class SalarieAideADomicileRepositoryTestInte {
 
     @Autowired
-    public SalarieAideADomicileRepository salarieAideADomicileRepository;
+    private SalarieAideADomicileRepository salarieAideADomicileRepository;
 
     @Test
-    public void findByNomTestOk(){
+    void findByNomTestOk(){
         // Given
         SalarieAideADomicile salarieInjecter = new SalarieAideADomicile();
         salarieInjecter.setNom("BERNARD");
@@ -28,7 +28,7 @@ public class SalarieAideADomicileRepositoryTestInte {
     }
 
     @Test
-    public void findByNomTestKo(){
+    void findByNomTestKo(){
         // Given
         SalarieAideADomicile salarieInjecter = new SalarieAideADomicile();
         salarieInjecter.setNom("BERNARD");

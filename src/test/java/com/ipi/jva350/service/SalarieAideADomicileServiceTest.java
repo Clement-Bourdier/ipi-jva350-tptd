@@ -1,17 +1,14 @@
 package com.ipi.jva350.service;
 
-import com.ipi.jva350.exception.SalarieException;
 import com.ipi.jva350.model.SalarieAideADomicile;
 import com.ipi.jva350.repository.SalarieAideADomicileRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import java.time.LocalDate;
 
-public class SalarieAideADomicileServiceTest {
+class SalarieAideADomicileServiceTest {
 
     @InjectMocks
     SalarieAideADomicileService salarieAideADomicileService;
@@ -24,7 +21,7 @@ public class SalarieAideADomicileServiceTest {
     }
 
     @Test
-    public void ajouteCongeOk() {
+    void ajouteCongeOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setNom("BERNARD");

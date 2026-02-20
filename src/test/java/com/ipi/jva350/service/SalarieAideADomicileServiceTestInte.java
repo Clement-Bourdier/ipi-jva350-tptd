@@ -16,13 +16,13 @@ import java.time.LocalDate;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class SalarieAideADomicileServiceTestInte {
+class SalarieAideADomicileServiceTestInte {
 
     @Autowired
-    SalarieAideADomicileService salarieAideADomicileService;
+    private SalarieAideADomicileService salarieAideADomicileService;
 
     @Autowired
-    SalarieAideADomicileRepository salarieTrouverRepository;
+    private SalarieAideADomicileRepository salarieTrouverRepository;
 
 
     @BeforeEach
@@ -31,7 +31,7 @@ public class SalarieAideADomicileServiceTestInte {
     }
 
     @Test
-    public void ajouteCongeOk() throws SalarieException {
+    void ajouteCongeOk() throws SalarieException {
         //Given
         SalarieAideADomicile salarieInjecter = new SalarieAideADomicile();
         salarieInjecter.setNom("BERNARD");
@@ -49,7 +49,7 @@ public class SalarieAideADomicileServiceTestInte {
     }
 
     @Test
-    public void ajouteCongePasDroitKo() {
+    void ajouteCongePasDroitKo() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
@@ -60,7 +60,7 @@ public class SalarieAideADomicileServiceTestInte {
     }
 
     @Test
-    public void ajouteCongePasDecongésKo() {
+    void ajouteCongePasDecongésKo() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setJoursTravaillesAnneeNMoins1(50);
@@ -72,7 +72,7 @@ public class SalarieAideADomicileServiceTestInte {
     }
 
     @Test
-    public void ajouteCongePasCongésMoisIncorrectKo() {
+    void ajouteCongePasCongésMoisIncorrectKo() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setJoursTravaillesAnneeNMoins1(50);
@@ -85,7 +85,7 @@ public class SalarieAideADomicileServiceTestInte {
     }
 
     @Test
-    public void ajouteCongePasCongésAnneesIncorrectKo() {
+    void ajouteCongePasCongésAnneesIncorrectKo() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setJoursTravaillesAnneeNMoins1(50);
@@ -98,7 +98,7 @@ public class SalarieAideADomicileServiceTestInte {
     }
 
     @Test
-    public void ajouteCongePasCongésCongesAquisInsuffisantKo() {
+    void ajouteCongePasCongésCongesAquisInsuffisantKo() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setJoursTravaillesAnneeNMoins1(50);

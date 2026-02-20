@@ -7,10 +7,10 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.LocalDate;
 
-public class EntrepriseTest {
+class EntrepriseTest {
 
     @Test
-    public void EstDansPlageTrueOk() {
+    void EstDansPlageTrueOk() {
         //Given
         LocalDate debut = LocalDate.parse("2020-04-20");
         LocalDate fin = LocalDate.parse("2020-04-22");
@@ -27,7 +27,7 @@ public class EntrepriseTest {
             "'2020-04-23','2020-04-20','2020-04-22'",
             "'2020-04-23','2020-04-22','2020-04-20'"
     })
-    public void EstDansPlageFalseOk(String date, String debut, String fin) {
+    void EstDansPlageFalseOk(String date, String debut, String fin) {
         //Given
         Entreprise entreprise = new Entreprise();
         //When
@@ -41,7 +41,7 @@ public class EntrepriseTest {
             "'2026-05-01'",
             "'2026-12-25'"
     })
-    public void EstJourFerieTrueOk(String date) {
+    void EstJourFerieTrueOk(String date) {
         //Given
         Entreprise entreprise = new Entreprise();
         //When
@@ -55,7 +55,7 @@ public class EntrepriseTest {
             "'2026-05-02'",
             "'2026-12-24'"
     })
-    public void EstJourFerieFalseOk(String date) {
+    void EstJourFerieFalseOk(String date) {
         //Given
         Entreprise entreprise = new Entreprise();
         //When
@@ -70,7 +70,7 @@ public class EntrepriseTest {
             "'2026-02-01',0.8",
             "'2026-09-01',0.4666666666666667",
     })
-    public void ProportionPondereeDuMoisOk(String mois, double expected) {
+    void ProportionPondereeDuMoisOk(String mois, double expected) {
         //Given
         Entreprise entreprise = new Entreprise();
         //When
@@ -85,7 +85,7 @@ public class EntrepriseTest {
             "'2025-01-01','2024-06-01'",
             "'2024-01-01','2023-06-01'"
     })
-    public void getPremierJourAnneeDeCongesOk(String annee, String expected) {
+    void getPremierJourAnneeDeCongesOk(String annee, String expected) {
         //Given
         Entreprise entreprise = new Entreprise();
         //When

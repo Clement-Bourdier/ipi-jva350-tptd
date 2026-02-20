@@ -11,7 +11,7 @@ import java.util.Objects;
 @Entity
 public class SalarieAideADomicile {
 
-    public static float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;
+    public static final float CONGES_PAYES_ACQUIS_PAR_MOIS = 2.5f;
 
 
     @Id
@@ -20,7 +20,7 @@ public class SalarieAideADomicile {
 
     private String nom;
 
-    public static List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
+    protected static final List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
 
     static {
         joursHabituellementTravailles.add(DayOfWeek.MONDAY);
@@ -59,7 +59,6 @@ public class SalarieAideADomicile {
         this.congesPayesPrisAnneeNMoins1 = congesPayesPrisAnneeNMoins1;
         this.joursTravaillesAnneeN = joursTravaillesAnneeN;
         this.congesPayesAcquisAnneeN = congesPayesAcquisAnneeN;
-        //this.congesPayesPris = congesPayesPris;
     }
 
     /**
@@ -176,15 +175,6 @@ public class SalarieAideADomicile {
     public double getCongesPayesRestantAnneeNMoins1() {
         return this.congesPayesAcquisAnneeNMoins1 - this.getCongesPayesPrisAnneeNMoins1();
     }
-    /*
-    public double getCongesPayesRestantAnneeNMoins1() {
-        return congesPayesRestantAnneeNMoins1;
-    }
-
-    public void setCongesPayesRestantAnneeNMoins1(double congesPayesRestantAnneeNMoins1) {
-        this.congesPayesRestantAnneeNMoins1 = congesPayesRestantAnneeNMoins1;
-    }
-    */
 
     public double getCongesPayesAcquisAnneeNMoins1() {
         return congesPayesAcquisAnneeNMoins1;

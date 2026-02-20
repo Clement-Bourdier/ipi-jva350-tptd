@@ -8,13 +8,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 
-public class SalarieAideADomicileTest {
+class SalarieAideADomicileTest {
 
     @ParameterizedTest
     @CsvSource({
             "10", "11"
     })
-    public void aLegalementDroitADesCongesPayesTrueOk(double nbrJourstravaille) {
+    void aLegalementDroitADesCongesPayesTrueOk(double nbrJourstravaille) {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setJoursTravaillesAnneeNMoins1(nbrJourstravaille);
@@ -25,7 +25,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void aLegalementDroitADesCongesPayesFalseOk() {
+    void aLegalementDroitADesCongesPayesFalseOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         salarie.setJoursTravaillesAnneeNMoins1(9);
@@ -36,7 +36,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void calculeJoursDeCongeDecomptesPourPlageDateDebutApresDateFinOk() {
+    void calculeJoursDeCongeDecomptesPourPlageDateDebutApresDateFinOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
@@ -50,7 +50,7 @@ public class SalarieAideADomicileTest {
             "'2026-05-04', '2026-05-08', 5", //Periode de congés normale 2026-05-04 (LocalDate.parse)
             "'2026-04-30', '2026-05-05', 4" //Période de congés avec jour ferié (1 Mai)
     })
-    public void calculeJoursDeCongeDecomptesPourPlageDateSemaineNormalOk(
+    void calculeJoursDeCongeDecomptesPourPlageDateSemaineNormalOk(
             String dtDebut, String dtFin,
             int nbrJour) {
         //Given
@@ -63,7 +63,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void calculeJoursDeCongeDecomptesPourPlageDateSemaineJourFerieOk() {
+    void calculeJoursDeCongeDecomptesPourPlageDateSemaineJourFerieOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
@@ -73,7 +73,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void estJourOuvrableOk() {
+    void estJourOuvrableOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
@@ -83,7 +83,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void estJourOuvrableDimancheOk() {
+    void estJourOuvrableDimancheOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
@@ -93,7 +93,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void estJourOuvrableFerieOk() {
+    void estJourOuvrableFerieOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
@@ -103,7 +103,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void estHabituellementTravailleOk() {
+    void estHabituellementTravailleOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
@@ -113,7 +113,7 @@ public class SalarieAideADomicileTest {
     }
 
     @Test
-    public void estHabituellementTravailleDimancheOk() {
+    void estHabituellementTravailleDimancheOk() {
         //Given
         SalarieAideADomicile salarie = new SalarieAideADomicile();
         //When
