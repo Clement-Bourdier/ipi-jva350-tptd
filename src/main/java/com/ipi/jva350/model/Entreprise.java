@@ -7,7 +7,7 @@ public final class Entreprise {
 
     private static final Map<Integer, LocalDate> datePaque = new HashMap<>();
 
-    private Entreprise() {
+    Entreprise() {
 
     }
 
@@ -147,8 +147,11 @@ public final class Entreprise {
      * @return
      */
     public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
-        // à implémenter en TDD !
-        throw new RuntimeException("à implémenter en TDD !");
+        boolean estDansPlage = false;
+        if(d.isAfter(debut) && d.isBefore(fin)){
+            estDansPlage = true;
+        }
+        return estDansPlage;
     }
 
 }
